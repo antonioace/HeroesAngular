@@ -1,0 +1,55 @@
+<div class="container-fluid mt-4 row">
+  <form class="d-flex col-md-4" role="search">
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      #txtBuscar
+    />
+    <button
+      class="btn btn-outline-success"
+      (click)="buscarHeroes()"
+      type="submit"
+    >
+      Search
+    </button>
+  </form>
+  <div class="col-md-4 offset-md-4">
+    <a class="btn btn-danger" routerLink="/listado"> Ver Heroes Favoritos</a>
+  </div>
+</div>
+
+<div class="container" *ngFor="let heroe of heroes">
+  <div class="row">
+    <div class="col-md-4 m-3">
+      <div class="card" style="width: 18rem">
+        <img [src]="heroe | imagen" class="card-img-top" alt="..." />
+      </div>
+    </div>
+
+    <div class="col-md-4 m-3">
+      <div class="row">
+        <p>
+          Nombre:
+          {{ heroe.name }}
+          <br />
+          Descripcion:
+          <small> {{ heroe.description }}</small>
+
+          <br />
+          id:
+          {{ heroe.id }}
+        </p>
+      </div>
+
+      <button
+        class="btn btn-primary"
+        type="submit"
+        (click)="agregarHeroesFav(heroe)"
+      >
+        Agregar
+      </button>
+    </div>
+  </div>
+</div>

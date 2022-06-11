@@ -1,0 +1,29 @@
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Ver detalle</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let heroe of heroes">
+      <td>{{ heroe.id }}</td>
+      <td>{{ heroe.name }}</td>
+
+      <td><img class="small-flag" [src]="heroe | imagen" alt="" /></td>
+      <td><button class="btn btn-primary">Ver detalles</button></td>
+      <td>
+        <button
+          class="btn btn-danger"
+          type="submit"
+          (click)="eliminarHeroe(heroe)"
+        >
+          Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
